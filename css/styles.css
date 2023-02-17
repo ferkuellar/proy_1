@@ -125,3 +125,61 @@ img {
     color: var(--blanco);
     font-size: 2rem;
 }
+
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media(min-width: 768px){ 
+    .navegacion {
+        flex-direction: row;
+    }
+}
+
+.navegacion a {
+    padding: .5rem;
+    transition: background-color 300ms;
+    width: 100%;
+    text-align: center;
+}
+
+@media(min-width: 768px){ 
+    .navegacion a {
+        padding: 1rem 2rem;
+    }
+}
+
+.navegacion a:hover {
+    background-color: rgb(255 255 255 / .5);
+    color: var(--negro);
+}
+
+.slogan {
+    text-align: center;
+}
+
+@media(min-width: 768px){ 
+    .slogan {
+        text-align: right;
+    }
+}
+
+.slogan h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+@media(min-width: 768px){ 
+    .slogan h1 {
+        font-size: 5rem;
+    }
+}
+
+.slogan p {
+    margin: 0;
+    line-height: 1;
+}
