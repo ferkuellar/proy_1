@@ -27,9 +27,7 @@ body {
     line-height: 1.8;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     font-weight: 900;
     line-height: 1.2;
     margin: 1rem 0 4rem 0;
@@ -56,7 +54,42 @@ img {
     display: block;
 }
 
+/* Este código establece el ancho de un elemento .contenedor al 90% del ancho total, con un máximo de 120 rem. Esto significa que el ancho del elemento no superará los 120 rem, independientemente del tamaño del dispositivo en el que se esté visualizando. El margen: 0 automático; centra el elemento dentro de su contenedor, por lo que cualquier contenido dentro del elemento se centra en la página. */
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* El código .btn establece las propiedades de color, color de fondo, borde, relleno y transición para cualquier elemento al que se aplique */
+
+.btn {
+    color: var(--gris);
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+    padding: .5rem 2rem;
+    transition: background-color .3s;
+}
+
+/* El código .btn:hover cambia el color de fondo y el color de cualquier elemento con la clase 'btn' al pasar el cursor sobre él. */
+.btn:hover {
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+
+/* Utilidades */
+/*El código parece estar configurando estilos para una página web. El .text-center { text-align: center; } class establece que cualquier elemento de texto que tenga esta clase tenga su texto alineado en el centro. El .mt-5 { margen superior: 5rem; } class establece un margen superior de 5 rem para los elementos que tienen esta clase. */
+
+.text-center {
+    text-align: center;
+}
+.mt-5 {
+    margin-top: 5rem;
+}
+
 /* Header */
+/*El código que proporcionó es una declaración CSS para un elemento con la clase de encabezado. Este elemento tiene una altura mínima de 60 rem y una imagen de fondo configurada para no repetir y cubrir, y centrada usando background-position: center;. Dentro de este elemento hay otros dos componentes: contenido-encabezado y eslogan. El elemento secundario contenido-header se establece en flex y column, lo que lo hace más alto, con un área de contenido que consiste en un nombre de sitio, información de contacto y enlaces de navegación. El eslogan del elemento secundario también está configurado para ser flexible, con varios estilos para el color del texto, el tamaño de fuente, la alineación, etc. Las consultas de medios al final del código son las que permiten aplicar diferentes reglas de estilo según el tamaño de la ventana/pantalla. .  */
 
 .header {
     min-height: 60rem;
@@ -70,7 +103,7 @@ img {
 .contenido-header {
     display: flex;
     flex-direction: column;
-    height: calc(60rem - 4rem); /* funcion calc() Hace mas facil añadir margenes a un objeto*/
+    height: calc(60rem - 4rem); /* Este código establecerá la altura de un elemento en 56 rem (60 rem - 4 rem). La función CSS calc() se usa para realizar cálculos en varias propiedades CSS, lo que permite a los desarrolladores restar, sumar y dividir valores según sea necesario.*/
     justify-content: space-between;
     color: var(--blanco);
 }
@@ -114,7 +147,8 @@ img {
     display: flex;
 }
 
-.telefono::before {
+
+.telefono::before { /* El código .telefono::before crea un elemento de bloque con un ancho y una altura de 4 rem que tiene una imagen de fondo de ../img/telefono.png. Este bloque se coloca con una alineación central central y tiene un margen derecho de 1 rem. */
     content: '';
     display: block;
     width: 4rem;
@@ -189,6 +223,15 @@ img {
 }
 
 /* Section Sobre Nosotros */
+/* Este código configura una cuadrícula de visualización para la clase .nosotros, utilizando grid-template-rows para crear dos filas de igual altura, además de configurar la imagen de fondo y la posición.
+
+Cuando el tamaño de la pantalla supere los 992 px, se usarán 3 columnas en lugar de 2 con grid-template-columns para que el contenido se pueda diseñar de manera diferente.
+
+El contenido dentro de la clase '.contenido-nosotros' tendrá un color de fondo blanco y un relleno de 5 rem.
+
+Cuando el tamaño de la pantalla supere los 992px, la grid-column de la clase ".contenido-nosotros" ocupará la segunda y la tercera columna.
+
+Finalmente, cualquier encabezado o párrafo en el ".contenido-nosotros" tendrá un margen inferior establecido en 1rem para dejar algo de espacio entre los elementos. */
 
 .nosotros {
     display: grid;
@@ -221,6 +264,9 @@ img {
 }
 
 /* modelos de las casas */
+/* Este código configura un diseño de cuadrícula usando CSS. El selector .modelo se aplica a un elemento HTML, lo que nos permite definir filas y columnas configurando las propiedades grid-template-rows y grid-template-columns.
+La propiedad background-position se usa para alinear la imagen de fondo de varios elementos, con diferentes valores para diferentes resoluciones y puntos de interrupción (definidos por las reglas CSS @media).
+La última línea de código define el margen inferior del último elemento de la clase .modelo como 0, lo que significa que se eliminará cualquier espacio en blanco después del último elemento con la clase .modelo, lo que dará como resultado un diseño general más ajustado. */
 
 .modelo{
     display: grid;
@@ -286,4 +332,97 @@ img {
     .elite .contenido-modelo {
         padding: 2rem 2rem 2rem 0;
     }
+}
+
+/* Galeria */
+/* Este código se utiliza para crear una galería de fotos receptiva. La clase .galeria define el diseño de la cuadrícula de la galería, con el número de columnas dependiendo del tamaño de la pantalla. La propiedad grid-template-columns define cuántas celdas habrá en cada fila de la cuadrícula, mientras que el atributo gap crea espacio entre las imágenes. La clase img aplica la propiedad object-fit: cover para garantizar que todas las imágenes se escalan correctamente.
+El elemento :nth-child se usa para posicionar imágenes individuales y la consulta @media se usa para cambiar el diseño para diferentes tamaños de pantalla. Por ejemplo, cuando el tamaño de la pantalla es superior a 768 px, la segunda imagen ocupará dos columnas en lugar de solo una. De igual forma, la sexta imagen se posicionará en la tercera columna para pantallas mayores a 768px. */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media(min-width: 768px){ 
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.galeria img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.galeria .imagen:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+@media(min-width: 768px){ 
+    .galeria .imagen:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+    }
+}
+
+.galeria .imagen:nth-child(3) {
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+}
+
+@media(min-width: 768px){ 
+    .galeria .imagen:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+}
+
+.galeria .imagen:nth-child(6) {
+    grid-row: 2 / 4;
+}
+
+@media(min-width: 768px){ 
+    .galeria .imagen:nth-child(6) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+    }
+}
+
+/* Footer */
+/* Este código establece un estilo para la última instancia de un elemento HTML con la clase "modelo". El estilo especifica que debe tener un margen 0 en la parte inferior.
+
+La siguiente pieza de código establece variables en la pseudo clase :root. Esto se usa para definir propiedades personalizadas que se pueden usar en todo el CSS. Las propiedades establecidas aquí son para cuatro colores diferentes que se utilizan en todo el documento. También hay un conjunto de familias de fuentes, que se utilizará para el texto en todo el documento.
+
+La tercera pieza de código establece reglas relacionadas con el modelo de tamaño de caja. El tamaño del cuadro es una forma de controlar cómo los elementos y sus elementos secundarios se ajustan al tamaño del elemento principal. Al configurar el tamaño del cuadro para heredar en todos los elementos, permite establecer anchos del 100 % que no incluyen relleno ni bordes.
+
+La cuarta pieza de código configura un diseño receptivo mediante la creación de una plantilla de cuadrícula. Esto significa que cuando el tamaño de la ventana gráfica alcanza un ancho mínimo de 768 px, se crean dos columnas con un ancho igual de 1fr (unidad fraccionaria).
+
+El quinto fragmento de código establece la propiedad de altura de un elemento en un valor calculado mediante la función calc(). Este valor se calcula como 60 rem menos 4 rem, por lo que el elemento tendrá una altura de 56 rem.
+
+La sexta pieza de código establece estilos para un elemento de pie de página. Establece la imagen de fondo, el tamaño de fondo, el color, el tamaño de fuente, el tipo de pantalla y la dirección de flexión, entre otras cosas. También hay un fragmento de código que establece el estilo de los enlaces dentro del pie de página, así como un aviso de derechos de autor sobre un fondo negro. */
+.footer {
+    height: 30rem;
+    background-image: url(../img/footer_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--blanco);
+}
+
+.footer a {
+    color: var(--blanco);
+    font-size: 2rem;
+}
+
+.copyright {
+    background-color: var(--negro);
+    text-align: center;
+    margin: 5rem 0 0 0;
+    font-size: 2rem;
+    padding: 1rem;
 }
