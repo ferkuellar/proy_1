@@ -1,5 +1,7 @@
 
-/* se crean variables de pagina */
+/* se crean variables de Entorno */
+
+/* ":root", El fragmento de código está configurando variables CSS personalizadas que se pueden usar en el documento actual y cualquier descendiente. Las líneas --blanco: #fff; están definiendo variables con nombres significativos que están asociados a colores. Esto facilitará el trabajo con colores, ya que solo necesita configurar los colores una vez y luego puede acceder a ellos por nombre de variable. */
 :root {
     --blanco: #fff;
     --negro: #111111;
@@ -13,7 +15,9 @@ html {
     box-sizing: border-box;
 }
 
-*, *::before, *:after {
+/* "*, *:before, *::after", El código dado está configurando la propiedad de tamaño de caja. La propiedad de tamaño de cuadro le dice al navegador qué método de cálculo de tamaño debe usar al dimensionar elementos. Configurarlo para heredar significa que el elemento heredará el mismo tamaño de cuadro que tiene su elemento principal. Esto garantiza que todos los elementos dentro de un contenedor tengan el mismo modelo de tamaño de caja, lo que facilita aplicar estilos con precisión. */
+
+*, *:before, *:after {
     box-sizing: inherit;
 }
 
@@ -214,4 +218,72 @@ img {
 .contenido-nosotros h2,
 .contenido-nosotros p {
     margin-bottom: 1rem;
+}
+
+/* modelos de las casas */
+
+.modelo{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    margin-bottom: 5rem;
+}
+
+/* ".modelo:last-of-type" Este código establece el margen inferior del último elemento de la clase .modelo en 0. Esto significa que se eliminará cualquier espacio en blanco que aparezca después del último elemento con la clase .modelo, lo que dará como resultado un diseño general más ajustado. */
+
+.modelo:last-of-type {
+    margin-bottom: 0;
+}
+
+.contenido-modelo {
+    padding: 5rem;
+    background-color: var(--blanco);
+}
+
+@media(min-width: 768px){ 
+    .modelo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.basico {
+    background-image: url(../img/modelo_basico.jpg);
+}
+
+@media(min-width: 768px){ 
+    .basico {
+        background-position: top right;
+    }
+    .basico .contenido-modelo {
+        grid-row: 2 / 3;
+        padding: 2rem 2rem 2rem 0;
+    }
+}
+
+.premier {
+    background-image: url(../img/modelo_premier.jpg);
+}
+
+@media(min-width: 768px){ 
+    .premier {
+        background-position: top left;
+    }
+    .premier .contenido-modelo {
+        grid-column: 2 / 3;
+        padding: 2rem;
+    }
+}
+
+.elite {
+    background-image: url(../img/modelo_elite.jpg);
+}
+
+@media(min-width: 768px){ 
+    .elite {
+        background-position: top right;
+    }
+    .elite .contenido-modelo {
+        padding: 2rem 2rem 2rem 0;
+    }
 }
